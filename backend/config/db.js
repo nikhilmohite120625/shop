@@ -142,6 +142,7 @@ async function initPool() {
       waitForConnections: true,
       connectionLimit: 10,
       queueLimit: 0,
+      connectTimeout: 2500,
       multipleStatements: true
     });
 
