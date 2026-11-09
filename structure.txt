@@ -1,0 +1,123 @@
+Folder PATH listing for volume Windows
+Volume serial number is 000000C7 44BD:5DB0
+C:.
+¦   .gitignore
+¦   LICENSE
+¦   README.md
+¦   structure.txt
+¦   
++---backend
+¦   ¦   .env
+¦   ¦   package.json
+¦   ¦   server.js
+¦   ¦   
+¦   +---config
+¦   ¦       db.js
+¦   ¦       
+¦   +---controllers
+¦   ¦       authController.js
+¦   ¦       cartController.js
+¦   ¦       couponController.js
+¦   ¦       orderController.js
+¦   ¦       productController.js
+¦   ¦       reviewController.js
+¦   ¦       userController.js
+¦   ¦       wishlistController.js
+¦   ¦       
+¦   +---middleware
+¦   ¦       admin.js
+¦   ¦       auth.js
+¦   ¦       upload.js
+¦   ¦       validation.js
+¦   ¦       
+¦   +---models
+¦   ¦       Cart.js
+¦   ¦       Category.js
+¦   ¦       Contact.js
+¦   ¦       Coupon.js
+¦   ¦       Order.js
+¦   ¦       Product.js
+¦   ¦       Review.js
+¦   ¦       User.js
+¦   ¦       Wishlist.js
+¦   ¦       
+¦   +---routes
+¦   ¦       authRoutes.js
+¦   ¦       cartRoutes.js
+¦   ¦       contactRoutes.js
+¦   ¦       couponRoutes.js
+¦   ¦       orderRoutes.js
+¦   ¦       productRoutes.js
+¦   ¦       reviewRoutes.js
+¦   ¦       userRoutes.js
+¦   ¦       wishlistRoutes.js
+¦   ¦       
+¦   +---uploads
+¦       +---products
+¦           +---banners
+¦               +---users
++---database
+¦       saree_shop.sql
+¦       
++---frontend
+    ¦   index.html
+    ¦   
+    +---css
+    ¦       admin.css
+    ¦       cart.css
+    ¦       checkout.css
+    ¦       home.css
+    ¦       login.css
+    ¦       product.css
+    ¦       profile.css
+    ¦       register.css
+    ¦       responsive.css
+    ¦       shop.css
+    ¦       style.css
+    ¦       wishlist.css
+    ¦       
+    +---images
+    ¦   ¦   logo.png
+    ¦   ¦   
+    ¦   +---banners
+    ¦   +---categories
+    ¦   +---icons
+    ¦   +---products
+    ¦   +---users
+    +---js
+    ¦       admin.js
+    ¦       cart.js
+    ¦       checkout.js
+    ¦       filter.js
+    ¦       home.js
+    ¦       login.js
+    ¦       orders.js
+    ¦       product.js
+    ¦       profile.js
+    ¦       register.js
+    ¦       review.js
+    ¦       script.js
+    ¦       search.js
+    ¦       shop.js
+    ¦       wishlist.js
+    ¦       
+    +---pages
+            about.html
+            admin.html
+            cart.html
+            checkout.html
+            contact.htm
+            faq.html
+            login.html
+            order-details.html
+            orders.html
+            privacy.html
+            product.html
+            profile.htm
+            refund.html
+            register.html
+            shipping.html
+            shop.html
+            terms.html
+            wishlist.html
+            

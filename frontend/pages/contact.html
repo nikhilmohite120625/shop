@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us & Visit Store — Narayani Sarees, Tuljapur</title>
+  <meta name="description" content="Contact Narayani Sarees in Tuljapur, Maharashtra. Visit our showroom in front of Shreenath Mangal Karyalaya, Naldurg Road. Call +91 9359594007 or message on WhatsApp.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact Narayani Sarees, Tuljapur">
+  <meta property="og:description" content="Visit our saree showroom on Naldurg Road, Tuljapur. Call +91 9359594007 or email us.">
+
+  <!-- LocalBusiness Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ClothingStore",
+    "name": "Narayani Sarees",
+    "image": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=80",
+    "telephone": "+919359594007",
+    "email": "nikhilmohitepcet@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Infront Of Shreenath Mangal Karyalaya, Naldurg Road",
+      "addressLocality": "Tuljapur",
+      "addressRegion": "Maharashtra",
+      "postalCode": "413601",
+      "addressCountry": "IN"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon"><i class="fas fa-om"></i></div>
+        <div class="brand-text">
+          <h1>NARAYANI</h1>
+          <p>Sarees • Tuljapur</p>
+        </div>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/index.html" class="nav-link">Home</a></li>
+          <li><a href="/pages/shop.html" class="nav-link">Shop All</a></li>
+          <li><a href="/pages/about.html" class="nav-link">About Us</a></li>
+          <li><a href="/pages/contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="/pages/cart.html" class="nav-action-btn"><i class="fas fa-shopping-bag"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container" style="padding:60px 0; max-width:900px;">
+    <h1 style="color:var(--primary); margin-bottom:12px;">Get In Touch With Us</h1>
+    <p style="color:#666; margin-bottom:30px;">Have questions about our saree fabrics, bridal orders, or delivery? Reach out to our boutique team.</p>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px;">
+      <div style="background:#fbf9f5; padding:30px; border-radius:12px;">
+        <h3 style="color:var(--primary); margin-bottom:16px;">Boutique & Store Details</h3>
+        <p style="margin-bottom:12px;"><strong>Address:</strong><br>Narayani Sarees,<br>Infront Of Shreenath Mangal Karyalaya, Naldurg Road,<br>Tuljapur - 413601, Maharashtra, India</p>
+        <p style="margin-bottom:12px;"><strong>Phone / Support:</strong><br><a href="tel:+919359594007" style="color:var(--primary); font-weight:600;">+91 9359594007</a></p>
+        <p style="margin-bottom:12px;"><strong>Email:</strong><br><a href="mailto:nikhilmohitepcet@gmail.com" style="color:var(--primary); font-weight:600;">nikhilmohitepcet@gmail.com</a></p>
+        <p><strong>Store Timings:</strong><br>Monday to Sunday: 9:30 AM – 9:00 PM</p>
+      </div>
+
+      <div style="background:#fff; padding:30px; border-radius:12px; box-shadow:var(--shadow-sm); border:1px solid #eee;">
+        <h3 style="color:var(--primary); margin-bottom:16px;">Send Us a Message</h3>
+        <form onsubmit="event.preventDefault(); submitContactMsg(this);">
+          <div class="form-group" style="margin-bottom:12px;">
+            <label>Your Name *</label>
+            <input type="text" id="c-name" class="form-control" required>
+          </div>
+          <div class="form-group" style="margin-bottom:12px;">
+            <label>Email / Mobile *</label>
+            <input type="text" id="c-contact" class="form-control" required>
+          </div>
+          <div class="form-group" style="margin-bottom:12px;">
+            <label>Subject</label>
+            <input type="text" id="c-subject" class="form-control">
+          </div>
+          <div class="form-group" style="margin-bottom:16px;">
+            <label>Message *</label>
+            <textarea id="c-msg" class="form-control" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Send Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-bottom" style="background:transparent; border:none;"><p>© 2026 Narayani Sarees, Tuljapur. All Rights Reserved.</p></div>
+  </footer>
+
+  <script src="/js/script.js"></script>
+  <script>
+    async function submitContactMsg(form) {
+      const res = await apiCall('/contact', 'POST', {
+        name: document.getElementById('c-name').value,
+        email: document.getElementById('c-contact').value,
+        phone: document.getElementById('c-contact').value,
+        subject: document.getElementById('c-subject').value,
+        message: document.getElementById('c-msg').value
+      });
+      if (res.success) {
+        showToast(res.message, 'success');
+        form.reset();
+      } else {
+        showToast(res.message, 'error');
+      }
+    }
+  </script>
+</body>
+</html>

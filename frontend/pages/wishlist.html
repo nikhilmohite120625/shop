@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>My Wishlist — Narayani Sarees, Tuljapur</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/wishlist.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon"><i class="fas fa-om"></i></div>
+        <div class="brand-text">
+          <h1>NARAYANI</h1>
+          <p>Sarees • Tuljapur</p>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/index.html" class="nav-link">Home</a></li>
+          <li><a href="/pages/shop.html" class="nav-link">Shop All</a></li>
+          <li><a href="/pages/shop.html?category=paithani-sarees" class="nav-link">Paithani</a></li>
+          <li><a href="/pages/shop.html?category=banarasi-sarees" class="nav-link">Banarasi</a></li>
+          <li><a href="/pages/about.html" class="nav-link">About Us</a></li>
+          <li><a href="/pages/contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="/pages/wishlist.html" class="nav-action-btn" title="Wishlist">
+          <i class="fas fa-heart" style="color:var(--primary);"></i>
+          <span class="nav-badge wishlist-badge" style="display:none;">0</span>
+        </a>
+        <a href="/pages/cart.html" class="nav-action-btn" title="Shopping Cart">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="nav-badge cart-badge" style="display:none;">0</span>
+        </a>
+        <a href="/pages/login.html" class="nav-action-btn auth-link" title="Account"><i class="far fa-user"></i></a>
+        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Wishlist Container -->
+  <div class="container" style="min-height:70vh;">
+    <div class="breadcrumbs" style="margin-top:24px;">
+      <a href="/index.html">Home</a> <span>/</span> <span>My Saved Wishlist</span>
+    </div>
+    <h1 style="margin:20px 0;">My Saved Sarees</h1>
+
+    <div class="wishlist-grid" id="wishlist-grid">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-bottom" style="background:transparent; border:none;">
+      <p>© 2026 Narayani Sarees, Tuljapur. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/js/script.js"></script>
+  <script src="/js/wishlist.js"></script>
+</body>
+</html>

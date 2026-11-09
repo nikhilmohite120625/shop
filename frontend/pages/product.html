@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saree Details — Narayani Sarees, Tuljapur</title>
+  <meta name="description" content="View authentic handwoven saree details, pure silk fabric specifications, zari weave, customer reviews, and pricing from Narayani Sarees, Tuljapur.">
+  <meta property="og:type" content="product">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/product.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Announcement -->
+  <div class="announcement-bar">
+    <span><i class="fas fa-gem"></i> Handwoven Saree | Free Delivery Available</span>
+    <span class="badge badge-gold" style="font-size:11px;">CODE: WELCOME10</span>
+  </div>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon"><i class="fas fa-om"></i></div>
+        <div class="brand-text">
+          <h1>NARAYANI</h1>
+          <p>Sarees • Tuljapur</p>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/index.html" class="nav-link">Home</a></li>
+          <li><a href="/pages/shop.html" class="nav-link">Shop All</a></li>
+          <li><a href="/pages/shop.html?category=paithani-sarees" class="nav-link">Paithani</a></li>
+          <li><a href="/pages/shop.html?category=banarasi-sarees" class="nav-link">Banarasi</a></li>
+          <li><a href="/pages/shop.html?category=silk-sarees" class="nav-link">Silk</a></li>
+          <li><a href="/pages/about.html" class="nav-link">About Us</a></li>
+          <li><a href="/pages/contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="/pages/wishlist.html" class="nav-action-btn" title="Wishlist">
+          <i class="far fa-heart"></i>
+          <span class="nav-badge wishlist-badge" style="display:none;">0</span>
+        </a>
+        <a href="/pages/cart.html" class="nav-action-btn" title="Shopping Cart">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="nav-badge cart-badge" style="display:none;">0</span>
+        </a>
+        <a href="/pages/login.html" class="nav-action-btn auth-link" title="Account"><i class="far fa-user"></i></a>
+        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Product Details Container -->
+  <div class="container">
+    <div class="breadcrumbs" style="margin-top:20px;">
+      <a href="/index.html">Home</a> <span>/</span> <a href="/pages/shop.html">Shop</a> <span>/</span> <span id="breadcrumb-title">Saree Details</span>
+    </div>
+
+    <div class="product-detail-layout">
+      <!-- Gallery Left -->
+      <div class="product-gallery">
+        <div class="gallery-thumbnails" id="gallery-thumbs">
+          <!-- Thumbnails injected by JS -->
+        </div>
+        <div class="main-image-container">
+          <img id="main-product-image" src="" alt="Product Image">
+        </div>
+      </div>
+
+      <!-- Info Right -->
+      <div class="product-info-box">
+        <div class="product-sku-tag" id="product-sku">SKU: NS-001</div>
+        <h1 class="product-main-title" id="product-title">Loading Saree...</h1>
+
+        <div class="product-meta-row">
+          <div class="product-ratings">
+            <i class="fas fa-star"></i> <strong>4.8</strong> <span>(Verified Reviews)</span>
+          </div>
+          <div id="stock-badge-container">
+            <!-- Stock status -->
+          </div>
+        </div>
+
+        <div class="product-pricing-box">
+          <span class="current-price" id="product-price">₹0</span>
+          <span class="old-price" id="product-original-price"></span>
+          <span class="save-percent" id="product-discount-tag" style="display:none;"></span>
+        </div>
+
+        <p class="product-short-desc" id="product-desc"></p>
+
+        <!-- Fabric & Occasion Chips -->
+        <div class="product-chips-grid">
+          <div class="attribute-chip">
+            <span>Fabric</span>
+            <strong id="chip-fabric">Pure Silk</strong>
+          </div>
+          <div class="attribute-chip">
+            <span>Color</span>
+            <strong id="chip-color">Maroon</strong>
+          </div>
+          <div class="attribute-chip">
+            <span>Occasion</span>
+            <strong id="chip-occasion">Wedding</strong>
+          </div>
+        </div>
+
+        <!-- Purchase Actions -->
+        <div class="purchase-controls">
+          <div class="quantity-stepper">
+            <button onclick="changeQty(-1)">-</button>
+            <input type="text" id="qty-input" value="1" readonly>
+            <button onclick="changeQty(1)">+</button>
+          </div>
+          <div class="purchase-btns">
+            <button class="btn btn-primary" id="add-to-cart-btn" onclick="handleAddToCart()">
+              <i class="fas fa-shopping-bag"></i> Add To Cart
+            </button>
+            <button class="btn btn-secondary" id="buy-now-btn" onclick="handleBuyNow()">
+              <i class="fas fa-bolt"></i> Buy Now
+            </button>
+          </div>
+        </div>
+
+        <!-- Delivery PIN Code Checker -->
+        <div class="pincode-checker-box">
+          <h4><i class="fas fa-map-marker-alt"></i> Check Delivery to your PIN Code</h4>
+          <div class="pincode-form">
+            <input type="text" id="pincode-input" placeholder="Enter 6-digit PIN code (e.g. 413601)" maxlength="6">
+            <button class="btn btn-outline btn-sm" onclick="checkPincode()">Check</button>
+          </div>
+          <div class="pincode-result" id="pincode-result"></div>
+        </div>
+
+        <!-- WhatsApp Inquire Link -->
+        <div style="margin-top:10px;">
+          <a id="wa-inquire-btn" href="#" target="_blank" class="btn btn-outline btn-block" style="color:#25D366; border-color:#25D366;">
+            <i class="fab fa-whatsapp"></i> Ask Seller About This Saree on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Specifications Table -->
+    <div class="specs-section">
+      <h2>Saree Specifications & Craftsmanship</h2>
+      <table class="specs-table">
+        <tbody id="specs-tbody">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Reviews Section -->
+    <div class="product-reviews-section">
+      <div class="reviews-header">
+        <h2>Customer Reviews & Ratings</h2>
+      </div>
+
+      <!-- Write Review Form -->
+      <div class="write-review-card">
+        <h3>Write a Review</h3>
+        <p style="font-size:13px; color:#666; margin-bottom:14px;">Share your feedback about the fabric texture, zari weave, and drape quality.</p>
+        <form id="review-form" onsubmit="submitProductReview(event)">
+          <div class="star-rating-selector">
+            <i class="fas fa-star active" onclick="setRating(1)"></i>
+            <i class="fas fa-star active" onclick="setRating(2)"></i>
+            <i class="fas fa-star active" onclick="setRating(3)"></i>
+            <i class="fas fa-star active" onclick="setRating(4)"></i>
+            <i class="fas fa-star active" onclick="setRating(5)"></i>
+          </div>
+          <div class="form-group">
+            <input type="text" id="review-title-input" class="form-control" placeholder="Headline / Title (e.g., Royal finish, exactly as shown)" required>
+          </div>
+          <div class="form-group">
+            <textarea id="review-comment-input" class="form-control" rows="3" placeholder="Write your honest review here..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-sm">Submit Review</button>
+        </form>
+      </div>
+
+      <!-- Reviews List -->
+      <div id="reviews-list-container">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+
+    <!-- Related Products -->
+    <div class="products-section" style="padding:40px 0 80px 0;">
+      <h2 style="margin-bottom:28px;">Similar Handwoven Sarees</h2>
+      <div class="products-grid" id="related-products-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="brand-logo" style="margin-bottom:16px;">
+          <div class="logo-icon" style="background:#fff; color:#7B1E3A;"><i class="fas fa-om"></i></div>
+          <div class="brand-text">
+            <h1 style="color:#D4AF37;">NARAYANI</h1>
+            <p style="color:#fff;">Sarees • Tuljapur</p>
+          </div>
+        </div>
+        <p style="font-size:14px; color:#bbb;">Grace In Every Drape. Handcrafted Maharashtrian heritage sarees.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Store Information</h3>
+        <p style="font-size:13px; color:#ccc; margin-bottom:8px;">Narayani Sarees, Infront Of Shreenath Mangal Karyalaya, Naldurg Road, Tuljapur - 413601</p>
+        <p style="font-size:13px; color:#ccc;">Phone: +91 9359594007</p>
+      </div>
+      <div class="footer-col">
+        <h3>Policies</h3>
+        <ul>
+          <li><a href="/pages/shipping.html">Shipping & Delivery</a></li>
+          <li><a href="/pages/refund.html">7-Day Returns</a></li>
+          <li><a href="/pages/privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <div style="display:flex; gap:12px; font-size:18px; color:var(--secondary);">
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-facebook"></i>
+          <i class="fab fa-whatsapp"></i>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container"><p>© 2026 Narayani Sarees, Tuljapur. All Rights Reserved.</p></div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/919359594007" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+  <script src="/js/script.js"></script>
+  <script src="/js/product.js"></script>
+</body>
+</html>

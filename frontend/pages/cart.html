@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Shopping Cart — Narayani Sarees, Tuljapur</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/cart.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Announcement -->
+  <div class="announcement-bar">
+    <span><i class="fas fa-gem"></i> Free Shipping Across Maharashtra on Orders Over ₹1,499</span>
+  </div>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon"><i class="fas fa-om"></i></div>
+        <div class="brand-text">
+          <h1>NARAYANI</h1>
+          <p>Sarees • Tuljapur</p>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/index.html" class="nav-link">Home</a></li>
+          <li><a href="/pages/shop.html" class="nav-link">Shop All</a></li>
+          <li><a href="/pages/shop.html?category=paithani-sarees" class="nav-link">Paithani</a></li>
+          <li><a href="/pages/shop.html?category=banarasi-sarees" class="nav-link">Banarasi</a></li>
+          <li><a href="/pages/about.html" class="nav-link">About Us</a></li>
+          <li><a href="/pages/contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="/pages/wishlist.html" class="nav-action-btn" title="Wishlist">
+          <i class="far fa-heart"></i>
+          <span class="nav-badge wishlist-badge" style="display:none;">0</span>
+        </a>
+        <a href="/pages/cart.html" class="nav-action-btn" title="Shopping Cart">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="nav-badge cart-badge" style="display:none;">0</span>
+        </a>
+        <a href="/pages/login.html" class="nav-action-btn auth-link" title="Account"><i class="far fa-user"></i></a>
+        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Cart Content -->
+  <div class="container" style="min-height:70vh;">
+    <div class="breadcrumbs" style="margin-top:24px;">
+      <a href="/index.html">Home</a> <span>/</span> <span>Shopping Cart</span>
+    </div>
+
+    <h1 style="margin:20px 0;">Your Saree Cart</h1>
+
+    <div class="cart-layout">
+      <!-- Items Table -->
+      <div class="cart-items-card">
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th>Saree Product</th>
+              <th>Unit Price</th>
+              <th>Quantity</th>
+              <th>Subtotal</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="cart-items-tbody">
+            <!-- Injected by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Summary Card -->
+      <div class="order-summary-card">
+        <h3 class="summary-title">Order Summary</h3>
+
+        <div class="summary-row">
+          <span>Bag Subtotal</span>
+          <strong id="cart-subtotal">₹0</strong>
+        </div>
+
+        <div class="summary-row" id="cart-discount-row" style="display:none; color:var(--accent);">
+          <span>Coupon Discount</span>
+          <strong id="cart-discount-val">- ₹0</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Shipping & Delivery</span>
+          <span style="font-size:12px; color:#666;">Calculated at checkout</span>
+        </div>
+
+        <div class="summary-row total-row">
+          <span>Estimated Total</span>
+          <span id="cart-grand-total">₹0</span>
+        </div>
+
+        <!-- Coupon Application Box -->
+        <div class="coupon-box">
+          <label style="display:block; font-size:13px; font-weight:600; margin-bottom:8px;">Have a Coupon Code?</label>
+          <div class="coupon-input-group">
+            <input type="text" id="coupon-input" placeholder="e.g. WELCOME10">
+            <button class="btn btn-secondary btn-sm" onclick="applyCoupon()">Apply</button>
+          </div>
+          <div id="coupon-tag-container"></div>
+        </div>
+
+        <button class="btn btn-primary btn-block" onclick="proceedToCheckout()" style="padding:14px; font-size:15px;">
+          Proceed To Checkout <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-bottom" style="background:transparent; border:none;">
+      <p>© 2026 Narayani Sarees, Tuljapur. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/js/script.js"></script>
+  <script src="/js/cart.js"></script>
+</body>
+</html>

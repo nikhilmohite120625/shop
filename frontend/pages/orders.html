@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>My Orders & Invoices — Narayani Sarees, Tuljapur</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/profile.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon"><i class="fas fa-om"></i></div>
+        <div class="brand-text">
+          <h1>NARAYANI</h1>
+          <p>Sarees • Tuljapur</p>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/index.html" class="nav-link">Home</a></li>
+          <li><a href="/pages/shop.html" class="nav-link">Shop All</a></li>
+          <li><a href="/pages/profile.html" class="nav-link">My Account</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="/pages/wishlist.html" class="nav-action-btn" title="Wishlist"><i class="far fa-heart"></i></a>
+        <a href="/pages/cart.html" class="nav-action-btn" title="Shopping Cart"><i class="fas fa-shopping-bag"></i></a>
+        <a href="/pages/profile.html" class="nav-action-btn auth-link"><i class="far fa-user"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container profile-layout">
+    <!-- Sidebar -->
+    <aside class="profile-sidebar">
+      <div class="profile-nav-list">
+        <a href="/pages/profile.html" class="profile-nav-item"><i class="fas fa-user"></i> My Profile & Addresses</a>
+        <a href="/pages/orders.html" class="profile-nav-item active"><i class="fas fa-box"></i> My Orders & Invoices</a>
+        <a href="/pages/wishlist.html" class="profile-nav-item"><i class="fas fa-heart"></i> Saved Wishlist</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="profile-main">
+      <h2 style="margin-bottom:24px;">My Saree Orders</h2>
+      <div id="orders-list-container">
+        <!-- Injected by JS -->
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/script.js"></script>
+  <script src="/js/orders.js"></script>
+</body>
+</html>

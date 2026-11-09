@@ -1,0 +1,26 @@
+# Node Modules & Dependencies
+node_modules/
+backend/node_modules/
+
+# Environment Variables & Secrets (Keep private!)
+.env
+backend/.env
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Temporary / Scratch files
+tmp/
+temp/

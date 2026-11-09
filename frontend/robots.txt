@@ -1,0 +1,33 @@
+﻿# Narayani Sarees, Tuljapur - Production Robots Policy
+# https://narayanisarees.com
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /pages/shop.html
+Allow: /pages/product.html
+Allow: /pages/about.html
+Allow: /pages/contact.html
+Allow: /pages/reviews.html
+Allow: /pages/size-guide.html
+Allow: /pages/care.html
+Allow: /pages/privacy.html
+Allow: /pages/terms.html
+Allow: /pages/shipping.html
+Allow: /pages/refund.html
+Allow: /uploads/
+Allow: /css/
+Allow: /js/
+
+# Disallow indexing of customer private and store admin endpoints
+Disallow: /pages/admin.html
+Disallow: /pages/checkout.html
+Disallow: /pages/cart.html
+Disallow: /pages/profile.html
+Disallow: /pages/login.html
+Disallow: /pages/register.html
+Disallow: /pages/order-details.html
+Disallow: /pages/wishlist.html
+Disallow: /api/
+
+Sitemap: https://narayanisarees.com/sitemap.xml

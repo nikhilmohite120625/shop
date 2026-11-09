@@ -1,0 +1,21 @@
+{
+  "name": "narayani-sarees",
+  "version": "1.0.0",
+  "description": "Narayani Sarees - Full-Stack E-Commerce Website (Tuljapur)",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "backend": "cd backend && npm start",
+    "postinstall": "cd backend && npm install",
+    "build": "cd backend && npm install"
+  },
+  "keywords": [
+    "ecommerce",
+    "saree-shop",
+    "express",
+    "mysql",
+    "tuljapur"
+  ],
+  "author": "Narayani Sarees (Tuljapur)",
+  "license": "ISC"
+}

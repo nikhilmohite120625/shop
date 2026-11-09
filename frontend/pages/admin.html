@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin Dashboard — Narayani Sarees, Tuljapur</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="admin-brand">
+        <div class="logo-icon" style="width:36px; height:36px; font-size:18px;"><i class="fas fa-om"></i></div>
+        <div>
+          <h2>NARAYANI</h2>
+          <span style="font-size:11px; color:#aaa; letter-spacing:1px;">ADMIN CONSOLE</span>
+        </div>
+      </div>
+
+      <nav class="admin-nav">
+        <div class="admin-nav-item active" onclick="showAdminTab('overview', this)"><i class="fas fa-chart-line"></i> Overview</div>
+        <div class="admin-nav-item" onclick="showAdminTab('products', this)"><i class="fas fa-tshirt"></i> Products Catalog</div>
+        <div class="admin-nav-item" onclick="showAdminTab('inventory', this)"><i class="fas fa-boxes-stacked"></i> Inventory & Stock</div>
+        <div class="admin-nav-item" onclick="showAdminTab('bulk-upload', this)"><i class="fas fa-file-import"></i> Bulk CSV Upload</div>
+        <div class="admin-nav-item" onclick="showAdminTab('orders', this)"><i class="fas fa-shopping-cart"></i> Orders & Status</div>
+        <div class="admin-nav-item" onclick="showAdminTab('coupons', this)"><i class="fas fa-tags"></i> Coupons & Offers</div>
+        <div class="admin-nav-item" onclick="showAdminTab('reviews', this)"><i class="fas fa-star"></i> Reviews Moderation</div>
+        <div class="admin-nav-item" onclick="showAdminTab('customers', this)"><i class="fas fa-users"></i> Customers</div>
+        <div class="admin-nav-item" onclick="showAdminTab('staff', this)"><i class="fas fa-user-shield"></i> Staff & Roles</div>
+        <div class="admin-nav-item" onclick="showAdminTab('settings', this)"><i class="fas fa-lock"></i> Account & Security</div>
+      </nav>
+
+      <div style="padding:20px; border-top:1px solid #332228;">
+        <a href="/index.html" target="_blank" class="btn btn-outline btn-block btn-sm" style="color:#fff; border-color:#555; margin-bottom:8px;">
+          <i class="fas fa-external-link-alt"></i> View Live Store
+        </a>
+        <button class="btn btn-primary btn-block btn-sm" onclick="adminLogout()">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <!-- Top Bar -->
+      <div class="admin-topbar">
+        <div>
+          <h2 style="font-size:20px; color:var(--primary);">Store Management Portal</h2>
+          <p style="font-size:12px; color:#777;">Narayani Sarees, Tuljapur (413601)</p>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="text-align:right;">
+            <strong id="admin-user-name">Admin</strong><br>
+            <span class="badge badge-gold" id="admin-user-role">Super Admin</span>
+          </div>
+          <div class="profile-avatar-circle" style="width:42px; height:42px; font-size:18px; margin:0;">A</div>
+        </div>
+      </div>
+
+      <!-- Tab 1: Overview Analytics -->
+      <div id="tab-overview" class="admin-tab-content">
+        <div class="admin-stat-cards">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-indian-rupee-sign"></i></div>
+            <div class="stat-info">
+              <h4>Total Revenue</h4>
+              <h2 id="stat-total-sales">₹0</h2>
+            </div>
+          </div>
+          <div class="stat-card" style="border-left-color:var(--accent);">
+            <div class="stat-icon" style="color:var(--accent);"><i class="fas fa-coins"></i></div>
+            <div class="stat-info">
+              <h4>Today's Sales</h4>
+              <h2 id="stat-today-sales">₹0</h2>
+            </div>
+          </div>
+          <div class="stat-card" style="border-left-color:var(--secondary);">
+            <div class="stat-icon" style="color:var(--secondary-dark);"><i class="fas fa-box-check"></i></div>
+            <div class="stat-info">
+              <h4>Total Orders</h4>
+              <h2 id="stat-total-orders">0</h2>
+            </div>
+          </div>
+          <div class="stat-card" style="border-left-color:var(--danger);">
+            <div class="stat-icon" style="color:var(--danger);"><i class="fas fa-triangle-exclamation"></i></div>
+            <div class="stat-info">
+              <h4>Low Stock Sarees</h4>
+              <h2 id="stat-low-stock">0</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="data-table-card">
+          <div class="data-table-header">
+            <h3>Recent Store Orders</h3>
+            <button class="btn btn-outline btn-sm" onclick="showAdminTab('orders', document.querySelectorAll('.admin-nav-item')[4])">View All Orders</button>
+          </div>
+          <p style="font-size:13px; color:#666;">View and manage customer saree orders, live shipping statuses, and generate GST tax invoices.</p>
+        </div>
+      </div>
+
+      <!-- Tab 2: Products Catalog -->
+      <div id="tab-products" class="admin-tab-content" style="display:none;">
+        <div class="data-table-card">
+          <div class="data-table-header">
+            <h3>Saree Products Catalog</h3>
+            <button class="btn btn-primary btn-sm" onclick="openProductModal()"><i class="fas fa-plus"></i> Add New Saree</button>
+          </div>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Saree Title & SKU</th>
+                <th>Category</th>
+                <th>Selling Price</th>
+                <th>Stock Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-products-tbody">
+              <!-- Loaded by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tab 3: Inventory Management -->
+      <div id="tab-inventory" class="admin-tab-content" style="display:none;">
+        <div class="data-table-card">
+          <div class="data-table-header">
+            <h3>Inventory & Stock Tracking</h3>
+          </div>
+          <p style="font-size:13px; color:#666; margin-bottom:20px;">
+            Stock is decreased atomically upon order placement. If quantity drops to 0, product automatically displays OUT OF STOCK and disables purchase buttons.
+          </p>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Product & SKU</th>
+                <th>Category</th>
+                <th>Current Stock</th>
+                <th>Stock State</th>
+                <th>Adjust Quantity</th>
+              </tr>
+            </thead>
+            <tbody id="admin-inventory-tbody">
+              <!-- Loaded by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tab 4: Bulk CSV Upload -->
+      <div id="tab-bulk-upload" class="admin-tab-content" style="display:none;">
+        <div class="data-table-card">
+          <h3>Bulk Product CSV / Excel Import</h3>
+          <p style="font-size:14px; color:#666; margin:8px 0 20px 0;">
+            Import multiple saree weaves at once using a CSV or Excel (.xlsx) file.
+          </p>
+
+          <form id="bulk-csv-form" onsubmit="handleBulkCsvUpload(event)">
+            <div class="dropzone-box" onclick="document.getElementById('csv-file-input').click()">
+              <i class="fas fa-cloud-arrow-up"></i>
+              <h4>Click to browse or drop your CSV / XLSX file here</h4>
+              <p style="font-size:12px; color:#777; margin-top:4px;">Supported formats: .csv, .xlsx, .xls (Up to 10MB)</p>
+              <input type="file" id="csv-file-input" accept=".csv, .xlsx, .xls" style="display:none;" onchange="document.getElementById('selected-file-name').textContent = this.files[0]?.name || ''">
+              <div id="selected-file-name" style="font-weight:600; color:var(--primary); margin-top:10px;"></div>
+            </div>
+
+            <div style="display:flex; gap:12px;">
+              <button type="submit" class="btn btn-primary"><i class="fas fa-upload"></i> Upload & Import Catalog</button>
+              <button type="button" class="btn btn-outline" onclick="downloadSampleCsv()"><i class="fas fa-download"></i> Download Sample CSV Template</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Tab 5: Orders Management -->
+      <div id="tab-orders" class="admin-tab-content" style="display:none;">
+        <div class="data-table-card">
+          <div class="data-table-header">
+            <h3>Customer Orders Management</h3>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Order No</th>
+                <th>Customer Details</th>
+                <th>Amount</th>
+                <th>Status Progression</th>
+                <th>Date</th>
+                <th>Invoice</th>
+              </tr>
+            </thead>
+            <tbody id="admin-orders-tbody">
+              <!-- Loaded by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tab 6: Coupons Management -->
+      <div id="tab-coupons" class="admin-tab-content" style="display:none;">
+        <div class="data-table-card" style="margin-bottom:30px;">
+          <h3>Create New Coupon</h3>
+          <form id="create-coupon-form" onsubmit="handleCreateCoupon(event)" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; margin-top:16px;">
+            <div class="form-group">
+              <label>Coupon Code *</label>
+              <input type="text" id="cp-code" class="form-control" placeholder="e.g. DIWALI20" required>
+            </div>
+            <div class="form-group">
+              <label>Discount Type</label>
+              <select id="cp-type" class="form-control">
+                <option value="percentage">Percentage (%)</option>
+                <option value="flat">Flat Amount (₹)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Discount Value *</label>
+              <input type="number" id="cp-val" class="form-control" placeholder="e.g. 10 or 500" required>
+            </div>
+            <div class="form-group">
+              <label>Min Order Amount (₹)</label>
+              <input type="number" id="cp-min" class="form-control" placeholder="1499">
+            </div>
+            <div class="form-group">
+              <label>Expiry Date</label>
+              <input type="date" id="cp-expiry" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <input type="text" id="cp-desc" class="form-control" placeholder="Festival Offer">
+            </div>
+            <div class="form-group" style="grid-column:1/-1;">
+              <button type="submit" class="btn btn-primary btn-sm">Create Coupon Code</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="data-table-card">
+          <h3>Active Promotional Coupons</h3>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Coupon Code</th>
+                <th>Discount</th>
+                <th>Min Order</th>
+                <th>Expiry</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="admin-coupons-tbody">
+              <!-- Loaded by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tab 7: Reviews Moderation -->
+      <div id="tab-reviews" class="admin-tab-content" style="display:none;">
+        <div class="data-table-card">
+          <h3>Customer Reviews Moderation</h3>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Saree Product</th>
+                <th>Customer</th>
+                <th>Rating</th>
+                <th>Review Content</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-reviews-tbody">
+              <!-- Loaded by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tab 8: Customers -->
+      <div id="tab-customers" class="admin-tab-content" style="display:none;">
+        <div class="data-table-card">
+          <h3>Registered Customer Accounts</h3>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Customer Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Joined Date</th>
+              </tr>
+            </thead>
+            <tbody id="admin-customers-tbody">
+              <!-- Loaded by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tab 9: Staff & Roles -->
+      <div id="tab-staff" class="admin-tab-content" style="display:none;">
+        <div class="data-table-card">
+          <h3>Admin Staff & Access Roles</h3>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Staff Name</th>
+                <th>Admin Email</th>
+                <th>Role & Permissions</th>
+                <th>Mobile</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="admin-staff-tbody">
+              <!-- Loaded by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tab 10: Account & Security -->
+      <div id="tab-settings" class="admin-tab-content" style="display:none;">
+        <div class="data-table-card" style="max-width:600px;">
+          <h3 style="margin-bottom:8px;"><i class="fas fa-shield-alt" style="color:var(--primary); margin-right:8px;"></i> Admin Account & Security Settings</h3>
+          <p style="color:#666; font-size:13px; margin-bottom:24px;">Update your login email address, administrative password, and contact details.</p>
+          
+          <form id="admin-security-form" onsubmit="handleUpdateAdminSecurity(event)">
+            <div class="form-group" style="margin-bottom:16px;">
+              <label style="display:block; font-weight:600; font-size:13px; margin-bottom:6px;">Admin Display Name</label>
+              <input type="text" id="admin-edit-name" class="form-control" placeholder="Admin Full Name" required>
+            </div>
+            
+            <div class="form-group" style="margin-bottom:16px;">
+              <label style="display:block; font-weight:600; font-size:13px; margin-bottom:6px;">Admin Login Email</label>
+              <input type="email" id="admin-edit-email" class="form-control" placeholder="admin@example.com" required>
+            </div>
+
+            <div class="form-group" style="margin-bottom:16px;">
+              <label style="display:block; font-weight:600; font-size:13px; margin-bottom:6px;">New Password (leave blank to keep current password)</label>
+              <input type="password" id="admin-edit-password" class="form-control" placeholder="Enter new password (min. 6 chars)">
+            </div>
+
+            <div class="form-group" style="margin-bottom:24px;">
+              <label style="display:block; font-weight:600; font-size:13px; margin-bottom:6px;">Contact Phone / WhatsApp</label>
+              <input type="text" id="admin-edit-phone" class="form-control" placeholder="+91 9359594007">
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-save"></i> Save Account Changes
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add Product Modal -->
+  <div class="modal-overlay" id="product-modal">
+    <div class="modal-card" style="max-width:700px;">
+      <div class="modal-close" onclick="closeProductModal()"><i class="fas fa-times"></i></div>
+      <h3 style="margin-bottom:20px; color:var(--primary);">Add New Saree to Catalog</h3>
+      <form id="create-product-form" onsubmit="handleCreateProduct(event)">
+        <div class="form-grid">
+          <div class="form-group full-width">
+            <label>Saree Title / Name *</label>
+            <input type="text" name="name" class="form-control" placeholder="e.g. Royal Maroon Pure Silk Paithani" required>
+          </div>
+          <div class="form-group">
+            <label>SKU Code</label>
+            <input type="text" name="sku" class="form-control" placeholder="NS-PTH-005">
+          </div>
+          <div class="form-group">
+            <label>Category *</label>
+            <select name="category_id" class="form-control" required>
+              <option value="1">Paithani Sarees</option>
+              <option value="2">Banarasi Sarees</option>
+              <option value="3">Silk Sarees</option>
+              <option value="4">Cotton Sarees</option>
+              <option value="5">Wedding Sarees</option>
+              <option value="6">Party Wear</option>
+              <option value="7">Daily Wear</option>
+              <option value="8">Designer Sarees</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Selling Price (₹) *</label>
+            <input type="number" name="price" class="form-control" placeholder="14999" required>
+          </div>
+          <div class="form-group">
+            <label>Original / MRP Price (₹)</label>
+            <input type="number" name="original_price" class="form-control" placeholder="18999">
+          </div>
+          <div class="form-group">
+            <label>Fabric Material *</label>
+            <input type="text" name="fabric" class="form-control" placeholder="Pure Silk" required>
+          </div>
+          <div class="form-group">
+            <label>Primary Color *</label>
+            <input type="text" name="color" class="form-control" placeholder="Maroon" required>
+          </div>
+          <div class="form-group">
+            <label>Occasion *</label>
+            <input type="text" name="occasion" class="form-control" placeholder="Wedding" required>
+          </div>
+          <div class="form-group">
+            <label>Initial Stock Quantity *</label>
+            <input type="number" name="stock_quantity" class="form-control" value="10" required>
+          </div>
+          <div class="form-group full-width">
+            <label>Description & Pallu Details</label>
+            <textarea name="description" class="form-control" rows="3" placeholder="Craftsmanship details, motifs, zari weave..."></textarea>
+          </div>
+          <div class="form-group full-width">
+            <label>Upload Saree Photos (Multiple allowed)</label>
+            <input type="file" name="images" class="form-control" multiple accept="image/*">
+          </div>
+        </div>
+
+        <div style="margin-top:20px; display:flex; justify-content:flex-end; gap:10px;">
+          <button type="button" class="btn btn-outline btn-sm" onclick="closeProductModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Save Saree to Catalog</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/script.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

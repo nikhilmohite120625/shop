@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Checkout — Narayani Sarees, Tuljapur</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/checkout.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon"><i class="fas fa-om"></i></div>
+        <div class="brand-text">
+          <h1>NARAYANI</h1>
+          <p>Secure Checkout</p>
+        </div>
+      </a>
+      <div id="ssl-security-badge" style="font-size:13px; color:#666; display:flex; align-items:center; gap:6px;">
+        <!-- Dynamically rendered based on protocol (HTTPS only in production) -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Checkout Container -->
+  <div class="container checkout-layout">
+    <!-- Left Column: Steps -->
+    <div class="checkout-steps-column">
+      <!-- Step 1: Shipping Address -->
+      <div class="checkout-step-card">
+        <div class="checkout-step-header">
+          <div class="step-num">1</div>
+          <h3>Delivery Address</h3>
+        </div>
+
+        <div id="saved-addresses-container" class="saved-addresses-grid">
+          <!-- Saved addresses -->
+        </div>
+
+        <div style="margin-bottom:15px;">
+          <button class="btn btn-outline btn-sm" onclick="toggleNewAddressForm()">
+            <i class="fas fa-plus"></i> Use / Add New Address
+          </button>
+        </div>
+
+        <!-- Form for new address -->
+        <div id="new-address-form" class="form-grid" style="display:none; background:#fbf9f5; padding:20px; border-radius:12px;">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" id="ship-name" class="form-control" placeholder="Recipient's Name">
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="text" id="ship-phone" class="form-control" placeholder="10-digit mobile number">
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="ship-email" class="form-control" placeholder="For order updates & invoice">
+          </div>
+          <div class="form-group">
+            <label>PIN Code *</label>
+            <input type="text" id="ship-pincode" class="form-control" placeholder="6-digit PIN" oninput="updateDeliveryChargeForPincode(this.value)">
+          </div>
+          <div class="form-group full-width">
+            <label>Street Address / House No / Landmark *</label>
+            <input type="text" id="ship-address" class="form-control" placeholder="Complete postal address">
+          </div>
+          <div class="form-group">
+            <label>City / Town *</label>
+            <input type="text" id="ship-city" class="form-control" placeholder="City">
+          </div>
+          <div class="form-group">
+            <label>State *</label>
+            <input type="text" id="ship-state" class="form-control" placeholder="State (e.g. Maharashtra)">
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Payment Method -->
+      <div class="checkout-step-card">
+        <div class="checkout-step-header">
+          <div class="step-num">2</div>
+          <h3>Payment Method</h3>
+        </div>
+
+        <div class="payment-methods-list">
+          <label class="payment-method-card selected">
+            <input type="radio" name="payment_method" value="COD" checked>
+            <div class="payment-method-info">
+              <h4>Cash on Delivery (COD)</h4>
+              <p>Pay with cash or UPI at your doorstep upon delivery.</p>
+            </div>
+          </label>
+
+          <label class="payment-method-card">
+            <input type="radio" name="payment_method" value="RAZORPAY">
+            <div class="payment-method-info">
+              <h4>Razorpay Online Payment (UPI, Cards, NetBanking)</h4>
+              <p>Instant secure payment via Google Pay, PhonePe, Paytm, Visa/Mastercard.</p>
+            </div>
+          </label>
+        </div>
+
+        <div class="form-group" style="margin-top:20px;">
+          <label>Order Notes / Gift Message (Optional)</label>
+          <textarea id="order-notes" class="form-control" rows="2" placeholder="e.g. Wedding gift packaging requested"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Order Review -->
+    <div class="checkout-summary-column">
+      <div class="checkout-step-card">
+        <h3 style="margin-bottom:18px;">Order Details</h3>
+        
+        <div id="checkout-items-list" style="margin-bottom:16px; border-bottom:1px solid #eee; padding-bottom:10px;">
+          <!-- Item list -->
+        </div>
+
+        <div class="summary-row">
+          <span>Items Subtotal</span>
+          <strong id="checkout-subtotal">₹0</strong>
+        </div>
+
+        <div class="summary-row" id="checkout-discount-row" style="display:none; color:var(--accent);">
+          <span>Discount</span>
+          <strong id="checkout-discount">- ₹0</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Delivery Charge</span>
+          <strong id="checkout-delivery">₹0</strong>
+        </div>
+        <div id="delivery-zone-note" style="font-size:11px; color:#777; margin-bottom:12px;"></div>
+
+        <div class="summary-row total-row" style="border-top:2px solid #7B1E3A; padding-top:12px;">
+          <span>Grand Total</span>
+          <span id="checkout-grand-total">₹0</span>
+        </div>
+
+        <button id="place-order-btn" class="btn btn-primary btn-block" onclick="handlePlaceOrder()" style="margin-top:20px; padding:15px; font-size:16px;">
+          <i class="fas fa-lock"></i> Place Saree Order
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Razorpay Official Checkout SDK -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="/js/script.js"></script>
+  <script src="/js/checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+﻿/* =========================================================
+   Narayani Sarees - Shop Page Styles
+   ========================================================= */
+
+.shop-page-header {
+  background: linear-gradient(rgba(123, 30, 58, 0.85), rgba(88, 18, 39, 0.9)),
+              url('https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1600&q=80') center/cover;
+  color: var(--white);
+  padding: 50px 0;
+  text-align: center;
+}
+
+.shop-page-header h1 {
+  color: var(--white);
+  font-size: 38px;
+  margin-bottom: 8px;
+}
+
+.breadcrumbs {
+  font-size: 13px;
+  color: var(--secondary-light);
+}
+
+.breadcrumbs a:hover {
+  color: var(--white);
+}
+
+/* Shop Layout */
+.shop-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 35px;
+  padding: 50px 0 80px 0;
+}
+
+/* Filter Sidebar */
+.shop-sidebar {
+  background: var(--card-bg);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--light-gray);
+  height: fit-content;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--primary);
+}
+
+.filter-header h3 {
+  font-size: 18px;
+}
+
+.clear-filters-btn {
+  font-size: 12px;
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.clear-filters-btn:hover {
+  text-decoration: underline;
+}
+
+.filter-group {
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.filter-group:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.filter-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #444;
+  cursor: pointer;
+}
+
+.filter-item input[type="checkbox"], .filter-item input[type="radio"] {
+  accent-color: var(--primary);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.filter-item:hover {
+  color: var(--primary);
+}
+
+/* Price Range Slider */
+.price-slider-container {
+  padding: 5px 0;
+}
+
+.price-slider {
+  width: 100%;
+  accent-color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.price-values {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* Shop Catalog Area */
+.shop-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding: 16px 20px;
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--light-gray);
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.results-count {
+  font-size: 14px;
+  color: var(--gray);
+}
+
+.toolbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-filter-box {
+  position: relative;
+  width: 220px;
+}
+
+.search-filter-box input {
+  width: 100%;
+  padding: 8px 32px 8px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--light-gray);
+  font-size: 13px;
+  outline: none;
+}
+
+.search-filter-box i {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray);
+  font-size: 13px;
+}
+
+.sort-select {
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--light-gray);
+  background: var(--white);
+  color: var(--dark);
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+}
+
+.sort-select:focus {
+  border-color: var(--primary);
+}
+
+/* Active Filter Tags */
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.filter-tag {
+  background: var(--secondary-light);
+  color: var(--dark);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.filter-tag i {
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.filter-tag i:hover {
+  color: var(--danger);
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.page-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--light-gray);
+  background: var(--white);
+  color: var(--dark);
+  font-weight: 600;
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.page-btn:hover, .page-btn.active {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--light-gray);
+}
+
+.empty-state i {
+  font-size: 48px;
+  color: var(--secondary);
+  margin-bottom: 16px;
+}
+
+.empty-state h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  color: var(--gray);
+  margin-bottom: 20px;
+}

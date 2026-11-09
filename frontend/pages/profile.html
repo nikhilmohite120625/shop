@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Customer Profile & Addresses — Narayani Sarees</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/profile.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon"><i class="fas fa-om"></i></div>
+        <div class="brand-text">
+          <h1>NARAYANI</h1>
+          <p>Sarees • Tuljapur</p>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/index.html" class="nav-link">Home</a></li>
+          <li><a href="/pages/shop.html" class="nav-link">Shop All</a></li>
+          <li><a href="/pages/orders.html" class="nav-link">My Orders</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="/pages/wishlist.html" class="nav-action-btn" title="Wishlist"><i class="far fa-heart"></i></a>
+        <a href="/pages/cart.html" class="nav-action-btn" title="Shopping Cart"><i class="fas fa-shopping-bag"></i></a>
+        <button class="btn btn-outline btn-sm" onclick="customerLogout()">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Profile Layout -->
+  <div class="container profile-layout">
+    <!-- Sidebar -->
+    <aside class="profile-sidebar">
+      <div class="profile-user-badge">
+        <div class="profile-avatar-circle" id="profile-initial">P</div>
+        <h3 id="profile-name">Pooja Patil</h3>
+        <p id="profile-email">customer@gmail.com</p>
+        <p id="profile-phone" style="font-size:11px; color:#888;"></p>
+      </div>
+
+      <div class="profile-nav-list">
+        <a href="/pages/profile.html" class="profile-nav-item active"><i class="fas fa-user"></i> My Profile & Addresses</a>
+        <a href="/pages/orders.html" class="profile-nav-item"><i class="fas fa-box"></i> My Orders & Invoices</a>
+        <a href="/pages/wishlist.html" class="profile-nav-item"><i class="fas fa-heart"></i> Saved Wishlist</a>
+        <div class="profile-nav-item" onclick="customerLogout()" style="color:var(--danger);"><i class="fas fa-sign-out-alt"></i> Sign Out</div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="profile-main">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px;">
+        <h2>Saved Delivery Addresses</h2>
+        <button class="btn btn-primary btn-sm" onclick="document.getElementById('address-modal').classList.add('active')">
+          <i class="fas fa-plus"></i> Add New Address
+        </button>
+      </div>
+
+      <div id="saved-addresses-list">
+        <!-- Addresses loaded by JS -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Add Address Modal -->
+  <div class="modal-overlay" id="address-modal">
+    <div class="modal-card">
+      <div class="modal-close" onclick="document.getElementById('address-modal').classList.remove('active')"><i class="fas fa-times"></i></div>
+      <h3 style="margin-bottom:18px; color:var(--primary);">Add New Delivery Address</h3>
+      <form id="add-address-form" onsubmit="handleAddAddress(event)">
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input type="text" id="addr-name" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="text" id="addr-phone" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>Street Address / House No *</label>
+          <input type="text" id="addr-line" class="form-control" required>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div class="form-group">
+            <label>City *</label>
+            <input type="text" id="addr-city" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>State *</label>
+            <input type="text" id="addr-state" class="form-control" value="Maharashtra" required>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div class="form-group">
+            <label>PIN Code *</label>
+            <input type="text" id="addr-pincode" class="form-control" placeholder="413601" maxlength="6" required>
+          </div>
+          <div class="form-group">
+            <label>Address Type</label>
+            <select id="addr-type" class="form-control">
+              <option value="home">Home</option>
+              <option value="work">Work</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div style="margin:12px 0;">
+          <label><input type="checkbox" id="addr-default"> Make this my default address</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Save Address</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/script.js"></script>
+  <script src="/js/profile.js"></script>
+</body>
+</html>
