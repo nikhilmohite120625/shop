@@ -51,12 +51,6 @@ The server will start on **http://localhost:5000**, serving both the REST APIs a
 
 ## 🔑 Pre-Configured Test Accounts & Credentials
 
-### 👑 Admin / Seller Accounts
-| Role | Email | Password | Permissions |
-| :--- | :--- | :--- | :--- |
-| **Super Admin** | `admin@narayanisarees.com` | `Admin@123` | Full unrestricted access |
-| **Store Manager**| `manager@narayanisarees.com`| `Manager@123` | Products, Inventory, Orders, Coupons, Reviews |
-| **Operations Staff**| `staff@narayanisarees.com`| `Staff@123` | Order status progression & customer support |
 
 ### 🛍️ Customer Account
 | Role | Email | Password | Pre-loaded Address |
@@ -66,11 +60,6 @@ The server will start on **http://localhost:5000**, serving both the REST APIs a
 *(Tip: On the `/pages/login.html` page, click any of the 4 "Quick Login Presets" buttons to test each role instantly!)*
 
 ---
-
-## 🎁 Active Promotional Coupons
-- `WELCOME10`: **10% OFF** on all saree orders (Min order ₹1,499).
-- `PAITHANI500`: **Flat ₹500 OFF** on handloom Paithani orders.
-- `FESTIVAL15`: **15% OFF** festive discount.
 
 ---
 
